@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="ray_filter_ground" type="ray_filter_ground_node" name="filter_ground" output="screen" />
+    <node pkg="tf" type="static_transform_publisher" name="map_to_velodyne" args="0 0 0 0 0 0 /map /velodyne 100" />
+    <node pkg="rviz" type="rviz" name="rviz" args="-d $(find ray_filter_ground)/rviz/filter.rviz" required="true" />
+</launch>
